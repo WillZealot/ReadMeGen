@@ -90,8 +90,9 @@ const moreQuestions = () => {
       },
     ])
     .then((answers) => {
-        fs.writeFile('log.txt', JSON.stringify(answers)
- );
+        fs.appendFile('bruh.txt', JSON.stringify(answers), (err) =>
+        err ? console.error(err) : console.log('Success!')
+      );
     })
     .catch((error) => {
       if (error.isTtyError) {
@@ -158,6 +159,9 @@ const noTableOfContents = (answers) => {
       ])
       .then((answers) => {
         // Access user input for no table of contents scenario
+        fs.appendFile('bruh.txt', JSON.stringify(answers), (err) =>
+        err ? console.error(err) : console.log('Success!')
+      );
       })
       .catch((error) => {
         if (error.isTtyError) {
@@ -189,12 +193,13 @@ inquirer
     }
   ])
   .then((answers) => {
+    fs.writeFile('bruh.txt', JSON.stringify(answers), (err) =>
+    err ? console.error(err) : console.log()
+  );
   if (answers.Table.includes('no')) {
     noTableOfContents();
- 
   } else if (answers.Table.includes('yes')) {
     moreQuestions();
-    
   } else {
     return;
   }
