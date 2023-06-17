@@ -7,13 +7,12 @@ const questions = [
   { name: 'title', message: 'What is the title of your project?' },
   { name: 'description', message: 'Provide a description of your project.' },
   { name: 'usage', message: 'How do you use this application?' },
-  { name: 'tableOfContentsContent', message: 'What would you like to add to your table of contents? If not, leave it blank.' },
+  { name: 'tableOfContentsContent', message: 'What would you like to add to your table of contents? If not, leave blank and press enter.' },
   { name: 'installation', message: 'How do you install this application?' },
   { name: 'credits', message: 'Who/What do you credit for creating this app?' },
-  { name: 'badges', message: 'Add any badge you may have by pasting its link!' },
   { name: 'features', message: 'List all your cool features!' },
   { name: 'contribute', message: 'How can others contribute? If not sure, visit "[Contributor Covenant](https://www.contributor-covenant.org/)"' },
-  { name: 'licenses', message: 'What licenses did you use?', type: 'checkbox', choices: [
+  { name: 'licenses', message: 'What licenses did you use? if none just press enter !', type: 'checkbox', choices: [
     'None',
     'Apache License 2.0',
     'GNU General Public License v3.0',
@@ -30,6 +29,8 @@ const questions = [
     'The Unlicense'
   ]},
   { name: 'tests', message: 'Have you done any tests? If so, provide examples.' },
+  { name: 'GitHub' ,message : 'Paste a link to your github profile so people can check you out!'},
+  { name: 'Email' , message : 'Add your email with info on how anybody can reach you !'}
 ];
 
 inquirer
@@ -38,6 +39,7 @@ inquirer
     const markdownContent = generateMarkdown(answers);
     // You can do something with the generated markdown content here,
     // such as writing it to a file using fs.writeFile() or displaying it in the console.
+    console.log(markdownContent);
     fs.writeFile('README.md', markdownContent, (err) => {
       if (err) {
         console.error('Error writing file:', err);
