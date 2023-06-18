@@ -18,8 +18,9 @@ A ReadMe Generator Developed To make creating a read me less of a hassle. JavaSc
 
 ## Installation
 Clone the repo From My GitHub Link here https://github.com/WillZealot/ReadMeGen 
-
 ## Usage
+Video Tutorial on How To Use
+https://watch.screencastify.com/v/t3MP1aPfOTEtJBKcMDG7
 1. Make sure you have the enquirer npm and Node. 2. Make Sure you are inside of the Develop Folder.
 cd ![image](https://github.com/WillZealot/ReadMeGen/assets/127908016/3aff0f56-e1cd-49fa-9637-9d80c6b6856e)
 3.In your terminal write node index.js 4. When prompted with questions answer them please ![image](https://github.com/WillZealot/ReadMeGen/assets/127908016/6d35a2d1-e81d-4be7-8988-e128edbf0c97)![image](https://github.com/WillZealot/ReadMeGen/assets/127908016/79402adc-4fa5-425e-85d7-d7ba08d8f8cc)
