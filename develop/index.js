@@ -2,7 +2,7 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const generateMarkdown = require('../develop/utils/generateMarkdown');
 
-// Array of questions for user input
+
 const questions = [
   { name: 'title', message: 'What is the title of your project?' },
   { name: 'description', message: 'Provide a description of your project.' },
@@ -22,9 +22,6 @@ const questions = [
     'Boost Software License 1.0',
     'Creative Commons Zero v1.0 Universal',
     'Eclipse Public License 2.0',
-    'GNU Affero General Public License v3.0',
-    'GNU General Public License v2.0',
-    'GNU Lesser General Public License v2.1',
     'Mozilla Public License 2.0',
     'The Unlicense'
   ]},
@@ -37,8 +34,7 @@ inquirer
   .prompt(questions)
   .then((answers) => {
     const markdownContent = generateMarkdown(answers);
-    // You can do something with the generated markdown content here,
-    // such as writing it to a file using fs.writeFile() or displaying it in the console.
+
     console.log(markdownContent);
     fs.writeFile('README.md', markdownContent, (err) => {
       if (err) {
@@ -50,7 +46,7 @@ inquirer
   })
   .catch((error) => {
     if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
+      console.error('Error:', error);
     } else {
       // Something else went wrong
     }
