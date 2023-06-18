@@ -1,8 +1,8 @@
-const fs = require('fs');
-const inquirer = require('inquirer');
-const generateMarkdown = require('../develop/utils/generateMarkdown');
+const fs = require('fs'); // File system module for reading and writing files
+const inquirer = require('inquirer'); // Inquirer module for prompting user input
+const generateMarkdown = require('../develop/utils/generateMarkdown'); // Import the generateMarkdown function
 
-
+// Array of questions for the user to provide project details
 const questions = [
   { name: 'title', message: 'What is the title of your project?' },
   { name: 'description', message: 'Provide a description of your project.' },
@@ -12,7 +12,7 @@ const questions = [
   { name: 'credits', message: 'Who/What do you credit for creating this app?' },
   { name: 'features', message: 'List all your cool features!' },
   { name: 'contribute', message: 'How can others contribute? If not sure, visit "[Contributor Covenant](https://www.contributor-covenant.org/)"' },
-  { name: 'licenses', message: 'What licenses did you use? if none just press enter !', type: 'checkbox', choices: [
+  { name: 'licenses', message: 'What licenses did you use? If none, just press enter!', type: 'checkbox', choices: [
     'None',
     'Apache License 2.0',
     'GNU General Public License v3.0',
@@ -26,17 +26,18 @@ const questions = [
     'The Unlicense'
   ]},
   { name: 'tests', message: 'Have you done any tests? If so, provide examples.' },
-  { name: 'GitHub' ,message : 'Paste a link to your github profile so people can check you out!'},
-  { name: 'Email' , message : 'Add your email with info on how anybody can reach you !'}
+  { name: 'GitHub' ,message : 'Paste a link to your GitHub profile so people can check you out!' },
+  { name: 'Email' , message : 'Add your email with info on how anybody can reach you!' }
 ];
 
+// Prompt the user with questions and generate the markdown file
 inquirer
   .prompt(questions)
   .then((answers) => {
-    const markdownContent = generateMarkdown(answers);
+    const markdownContent = generateMarkdown(answers); // Generate markdown content using user's answers
 
     console.log(markdownContent);
-    fs.writeFile('README.md', markdownContent, (err) => {
+    fs.writeFile('README.md', markdownContent, (err) => { // Write markdown content to README.md file
       if (err) {
         console.error('Error writing file:', err);
       } else {
